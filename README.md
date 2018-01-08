@@ -2,7 +2,7 @@
 
 Autocomplete App for showcasing the Autocomplete Component build in Angular.
 
-##Key Features
+## Key Features
 
 1. <b>Fluid Responsive Layout</b> of textbox that accomodates any width.
 2. Clean <b>manageable Suggestions</b> Box with limited search results. (limit can be updated from config)
@@ -14,7 +14,7 @@ Autocomplete App for showcasing the Autocomplete Component build in Angular.
 8. <b>Supports Keyboard Navigation</b> with Arrows among Suggestions. Tap Return/Enter Key to select.
 9. <b>Search History</b> is displayed when text is empty. (uses HTML5 localstorage) NOTE: The history gets saved only when a suggestion is clicked or on pressing Enter key.
 
-##Config File (app.constants.ts)
+## Config File (app.constants.ts)
 
 Default Setting for the app:
 
