@@ -1,0 +1,178 @@
+$theme-color: #03418f;
+$suggestion-selector-color: #e0eaf5;
+$suggestion-label: darkslateblue;
+$suggestion-category-color: #949494;
+
+.autocomplete__container {
+  position: relative;
+  width: 100%;
+  float: left;
+  margin: 2em auto;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+}
+
+.autocomplete__label {
+
+}
+
+.autocomplete__input {
+  position: relative;
+  float: left;
+
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  padding-top: 23px;
+  padding-bottom: 10px;
+
+  input {
+    display: block;
+    width: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+
+    & + label {
+      position: absolute;
+      top: 13px;
+      pointer-events:none;
+      transition:0.2s ease all;
+      -moz-transition:0.2s ease all;
+      -webkit-transition:0.2s ease all;
+      z-index: -1;
+      font-size: 25px;
+      font-weight: 600;
+      color: #ccc;
+    }
+
+    &:valid + label,
+    &:focus + label {
+      top: 3px;
+      font-size: 14px;
+      color: $theme-color;
+    }
+  }
+  input:focus ~ .bar:before, input:focus ~ .bar:after {
+    width:50%;
+  }
+
+  .bar 	{ display:block; }
+  .bar:before, .bar:after 	{
+    content:'';
+    height:2px;
+    width:0;
+    bottom:1px;
+    position:absolute;
+    background: $theme-color;
+    transition:0.2s ease all;
+    -moz-transition:0.2s ease all;
+    -webkit-transition:0.2s ease all;
+  }
+  .bar:before {
+    left:50%;
+  }
+  .bar:after {
+    right:50%;
+  }
+
+}
+
+.suggestion__box {
+  position: absolute;
+  top: 50px;
+  background: #fff;
+  box-shadow: 0 0 2px #868686;
+  width: 100%;
+
+  .suggestion__label {
+    float: right;
+    font-size: 10px;
+    font-style: italic;
+    padding: 3px 9px 0 0;
+    color: $suggestion-label;
+
+    &--history {
+      text-decoration: underline;
+    }
+  }
+
+  .suggestion__category {
+    display: block;
+    padding: 4px 0 0;
+    padding-left: 9%;
+    font-size: 12px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+    color: $suggestion-category-color;
+  }
+
+  .suggestion__text {
+    padding-left: 25px;
+    font-weight: bold;
+    display: block;
+    padding-top: 10px;
+    padding-right: 25px;
+    padding-bottom: 10px;
+
+    &:hover {
+      //background-color: $suggestion-selector-color;
+    }
+
+    &.highlighted-hover {
+      background-color: $suggestion-selector-color;
+    }
+
+    &--history {
+      color: purple;
+      font-weight: normal;
+      font-style: italic;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    li {
+      padding: 0;
+      font-size: 14px;
+      cursor: pointer;
+
+      &:first-child {
+        //padding-top: 0;
+      }
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+/*
+* The search box is fluid and will occupy the whole width of container where it is placed.
+* Below properties can be updated to make it restrict to specific width according to resolution.
+ */
+@media (min-width: 320px) and (max-width: 767px) {
+  .autocomplete__container {
+    //max-width: 310px;
+  }
+  .suggestion__text {
+    font-size: 12px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .autocomplete__container {
+    //max-width: 752px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .autocomplete__container {
+    //max-width: 1008px;
+  }
+}
